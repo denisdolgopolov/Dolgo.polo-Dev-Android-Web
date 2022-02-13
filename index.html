@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Dolgo.polo Dev</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+<body>
+
+    <div class="container_main">
+        <div class="header_container">
+            <img id="logo" src="logo.svg" class="logo"/>
+
+            <div class="title">Это сайт об<br> android<br> разработке.</div>
+        </div>
+
+        <div class="finding">
+            <input id="input" type="text" name="123" placeholder="Введите любое слово. Попробуем что-нибудь найти">
+            <span id="b_clear" class="icon"></span>
+        </div>
+
+        <div id="container_posts">
+<div class="container_post">
+        <a href="https://t.me/dolgo_polo_dev/14 ">
+          <img class="post_img" src="imgs/14.jpg">
+          <h4 class="post_title"><b>Негласные правила в названиях</b></h4>
+          <p class="post_desc">Называть классы можно как угодно, но со временем каждый разработчик приходит к одним и тем же ключевым словам, которые на удивление очень точно описывают содержание файла:...</p>
+        </a>
+      </div>
+
+<div class="container_post">
+        <a href="https://t.me/dolgo_polo_dev/15">
+          <img class="post_img" src="imgs/15.jpg">
+          <h4 class="post_title"><b> Отличие onStart() от onResume()</b></h4>
+          <p class="post_desc">onStart - вызывается, когда вьюшка (активити\фрагмент) выводится на экран. при этом вьюшка может быть чем-та перекрыта, например, всплывающим диалогом или шторкой. ...</p>
+        </a>
+      </div>
+
+<div class="container_post">
+        <a href="https://t.me/dolgo_polo_dev/18">
+          <img class="post_img" src="imgs/18.jpg">
+          <h4 class="post_title"><b>Dependency Injection на пальцах (DI, Dagger, Hilt, Koin)</b></h4>
+          <p class="post_desc">Долго боялся лезть разбираться в том, что же такое внедрение зависимостей. Но оказалось все очень просто - все библиотеки делают одно и то же:...</p>
+        </a>
+      </div>
+
+<div class="container_post">
+        <a href="https://t.me/dolgo_polo_dev/19">
+          <img class="post_img" src="imgs/19.jpg">
+          <h4 class="post_title"><b>.aab (.AAB)  — что и зачем </b></h4>
+          <p class="post_desc">как и .apk, новый формат .aab - это архив, содержащий все файлы (код, ресурсы) приложения ...</p>
+        </a>
+      </div>
+
+<div class="container_post">
+        <a href="https://t.me/dolgo_polo_dev/20">
+          <img class="post_img" src="imgs/20.jpg">
+          <h4 class="post_title"><b>Да кто этот ваш Context</b></h4>
+          <p class="post_desc">Самая загадочная и покрытая тайнами, как говорит молодежь, дичь в андроиде — Context  Используется на каждом шагу, а с лету написать определение не так уж просто...</p>
+        </a>
+      </div>
+
+<div class="container_post">
+        <a href="https://t.me/dolgo_polo_dev/21">
+          <img class="post_img" src="imgs/21.jpg">
+          <h4 class="post_title"><b>Волшебство LiveData</b></h4>
+          <p class="post_desc">LiveData - это класс, работающий по принципу Observable. ...</p>
+        </a>
+      </div>
+
+<div class="container_post">
+        <a href="https://t.me/dolgo_polo_dev/22">
+          <img class="post_img" src="imgs/22.jpg">
+          <h4 class="post_title"><b>Главная цель архитектуры или зачем столько страданий</b></h4>
+          <p class="post_desc">Можно выкупить принципы всех архитектур, так и не поняв, зачем столько геморроя © Аристотель, 300кк век до н. э....</p>
+        </a>
+      </div>
+
+        </div>
+
+        <div id="footer"></div>
+
+    </div>
+
+    <div id="b_open_random_post">открыть<br> рандом<br>ный<br> пост</div>
+
+
+</body>
+
+<script type="text/javascript">
+  document.getElementById("logo").addEventListener("click", function(){ window.open("https://t.me/dolgo_polo_dev"); });
+
+  const input = document.getElementById("input")
+  document.getElementById("b_clear").addEventListener("click", function(){ 
+    filter("")
+    input.value = "";
+     });
+
+  var postUrls =
+["https://t.me/dolgo_polo_dev/14 ","https://t.me/dolgo_polo_dev/15","https://t.me/dolgo_polo_dev/18","https://t.me/dolgo_polo_dev/19","https://t.me/dolgo_polo_dev/20","https://t.me/dolgo_polo_dev/21","https://t.me/dolgo_polo_dev/22"];
+  document.getElementById("b_open_random_post").addEventListener("click", function(){
+    var url = postUrls[Math.floor(Math.random()*postUrls.length)];
+    window.open(url);
+});
+
+     input.addEventListener('input', function(e) { 
+        filter(e.target.value.toLowerCase())
+    });
+
+     function filter(inputValue) {
+         const divs = document.getElementById("container_posts").getElementsByTagName('div');
+        for(i = 0; i < divs.length; i++) {
+             const firstChild = divs[i].children[0];
+             const title = firstChild.children[1];
+             const text = title.textContent.toLowerCase();
+             if(text.includes(inputValue) || inputValue == "") {
+                divs[i].style.display = 'block';
+            } else {
+                divs[i].style.display = 'none';
+            }
+        }
+}
+
+
+</script>
+
+</html>
