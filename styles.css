@@ -14,10 +14,11 @@
 
 .title {
   text-align: center;
-  color: #B0AEAE;
+  color: #b0aeae73;
   align-self: center;
   text-transform: uppercase;
   font: 150% "Fira Sans", sans-serif;
+  font-weight: bold;
 }
 
 
@@ -99,14 +100,6 @@
   min-width: 260px;
 }
 
-@media screen and (max-width: 400px) {
-
-  .container_post {
-    max-width: 100%;
-  }
-
-}
-
 .post_img {
  border-radius: 10px;
  width: 100%;
@@ -134,5 +127,26 @@ a {
 
 #footer {
   height: 300px;
+}
+
+@media screen and (max-width: 450px) {
+
+  .container_post {
+    max-width: 100%;
+  }
+
+  .title {
+    font: 90% "Fira Sans", sans-serif;
+      font-weight: bold;
+  }
+
+  .logo {
+     min-width: 140px;
+  }
+
+  .container_main {
+    width: 90%;
+  }
+
 }
 
