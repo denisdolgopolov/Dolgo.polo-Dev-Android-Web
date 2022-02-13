@@ -1,0 +1,138 @@
+
+.container_main {
+  width: 80%;
+  max-width: 1000px;
+  height: 300px;
+  margin: auto;
+}
+
+.logo {
+  width: 30%;
+  min-width: 160px;
+  cursor: pointer;
+}
+
+.title {
+  text-align: center;
+  color: #B0AEAE;
+  align-self: center;
+  text-transform: uppercase;
+  font: 150% "Fira Sans", sans-serif;
+}
+
+
+.finding {
+  height: 40px;
+  box-shadow: 0px 6px 12px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 21px;
+  margin-top: 30px;
+  position: relative;
+
+  background: linear-gradient(to right, #1511CD, #33DE44);
+  padding: 2px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.header_container {
+ margin-top: 30px;
+ display:flex;
+ justify-content:space-between;
+}
+
+#input {
+  width: 90%;
+  height: 100%;
+  border: none;
+  border-radius: 21px;
+  padding: 0;
+  padding-left: 10px;
+  flex-grow: 1;
+}
+
+#input:focus {
+  outline: none;
+}
+
+#b_clear {
+  margin: auto;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.icon {
+  background: url(clear.svg) no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+}
+
+#b_open_random_post  {
+ background: linear-gradient(to right, #1511CD, #33DE44);
+ position: fixed;
+ bottom: 2%;
+ border-radius: 10px;
+ padding: 10px;
+ right: 50%;
+
+ color: #FFFFFF;
+ text-transform: uppercase;
+ font: 1em "Fira Sans", sans-serif;
+ cursor: pointer;
+ transform: translate(50%, 0)
+}
+
+#container_posts {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  justify-content: space-between;
+}
+
+.container_post {
+  box-shadow: 0px 6px 12px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  max-width: 31%;
+  min-width: 260px;
+}
+
+@media screen and (max-width: 400px) {
+
+  .container_post {
+    max-width: 100%;
+  }
+
+}
+
+.post_img {
+ border-radius: 10px;
+ width: 100%;
+}
+
+.post_title {
+  padding: 0 3%;
+  color: black;
+  font-size: 1.1em;
+}
+
+.post_desc {
+ padding: 0 3%;
+ color: black;
+    overflow: hidden;
+     text-overflow: ellipsis;
+     display: -webkit-box;
+     -webkit-line-clamp: 4;
+     -webkit-box-orient: vertical;
+}
+
+a {
+  text-decoration: none;
+}
+
+#footer {
+  height: 300px;
+}
+
