@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>Dolgo.polo Dev</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="stylesheet" href="styles.css?v=2" type="text/css">
     <link rel="shortcut icon" href="favicon.png" type="image/png">
 </head>
 <body>
@@ -806,6 +806,79 @@ HashMap для каждой пары ключ-значение создаёт о
         </a>
       </div>
 
+<div class="container_post">
+        <a href="https://t.me/dolgo_polo_dev/51">
+          <img class="post_img" src="imgs/51.jpg" onerror="this.src='imgs/not_found.png';">
+          <h4 class="post_title"><b>​​Kotlin Coroutine. Suspend — зачем и как?</b></h4>
+          <p class="post_desc">
+suspend — ключевое слово, которое говорит компилятору о том, что в функцию нужно добавить (и передать при вызове) аргумент типа Continuation
+
+Continuation — интерфейс, который содержит одну функцию resumeWith(result: Result<T>). то есть обычный колбэк 
+
+когда suspend-функция выполнила работу, она должна вызвать continuation.resumeWith(result)
+
+если она этого не сделает, то корутина, вызвавшая эту suspend-функцию, просто зависнет
+
+после вызова колбэка, корутина, запустившая suspend-функцию, получит результат (если функция обещала что-то вернуть) и продолжит работу
+
+примечание: разработчику самому нужно вызывать continuation.resumeWith(result) только когда он использует suspendCoroutine { ... }. в остальных корутин-билдерах оно вызывается самостоятельно под капотом
+
+Выводы:
+
+• suspend само по себе не делает функцию асинхронной, только добавляет параметр при компиляции
+
+если вы на функцию поставите клеймо suspend, но долгие операции, выполняемые в ней, не вынесите в отдельный поток, то асинхронность не случится
+
+
+• suspend-функцию можно вызвать только из корутины (или другой suspend-функции)
+
+потому что Continuation — это объект, который создается в корутине и передается suspend-функциям внутри нее</p>
+        </a>
+      </div>
+
+<div class="container_post">
+        <a href="https://t.me/dolgo_polo_dev/52">
+          <img class="post_img" src="imgs/52.jpg" onerror="this.src='imgs/not_found.png';">
+          <h4 class="post_title"><b>​​sealed interface vs sealed class vs enum</b></h4>
+          <p class="post_desc">
+enum:
+
+• в первую очередь - это перечисление. поэтому у него есть методы для перебора значений
+
+• у каждой константы перечисления есть только параметры, описанные в конструкторе родительского enum
+
+• у каждого константы перечисления есть только функции, объявленные как abstract или определенные в родительском enum
+
+• каждое константы перечисления - object, то есть имеет один экземпляр
+
+• реализует serializable (удобно сохранять\отправлять как строку) и comporable (непонятно зачем)
+
+
+sealed:
+
+• в первую очередь - обычный класс
+
+• каждый из наследников может иметь свой конструктор, свои функции
+
+• наследниками могут быть как object, так и class
+следовательно, наследники-классы могут существовать в нескольких экземплярах
+
+• в отличие от обычных open-классов, все наследники sealed класса должны быть определены до компиляции
+то есть sealed что-то среднее между open и final-классами
+
+
+sealed class или sealed interface:
+
+• class - если хочешь создать переменную в конструкторе\внутри класса
+
+• interface - если переменные не нужны\достаточно констант в companion object
+
+....
+
+в каких конкретно кейсах вы используете sealed, а в каких enum?</p>
+        </a>
+      </div>
+
         </div>
 
         <div id="footer"></div>
@@ -827,7 +900,7 @@ HashMap для каждой пары ключ-значение создаёт о
 });
 
   var postUrls =
-["https://t.me/dolgo_polo_dev/14","https://t.me/dolgo_polo_dev/15","https://t.me/dolgo_polo_dev/18","https://t.me/dolgo_polo_dev/19","https://t.me/dolgo_polo_dev/20","https://t.me/dolgo_polo_dev/21","https://t.me/dolgo_polo_dev/22","https://t.me/dolgo_polo_dev/23","https://t.me/dolgo_polo_dev/24","https://t.me/dolgo_polo_dev/25","https://t.me/dolgo_polo_dev/26","https://t.me/dolgo_polo_dev/27","https://t.me/dolgo_polo_dev/29","https://t.me/dolgo_polo_dev/30","https://t.me/dolgo_polo_dev/31","https://t.me/dolgo_polo_dev/32","https://t.me/dolgo_polo_dev/33","https://t.me/dolgo_polo_dev/34","https://t.me/dolgo_polo_dev/35","https://t.me/dolgo_polo_dev/39","https://t.me/dolgo_polo_dev/42","https://t.me/dolgo_polo_dev/43","https://t.me/dolgo_polo_dev/45","https://t.me/dolgo_polo_dev/46","https://t.me/dolgo_polo_dev/47","https://t.me/dolgo_polo_dev/48","https://t.me/dolgo_polo_dev/49","https://t.me/dolgo_polo_dev/50"];
+["https://t.me/dolgo_polo_dev/14","https://t.me/dolgo_polo_dev/15","https://t.me/dolgo_polo_dev/18","https://t.me/dolgo_polo_dev/19","https://t.me/dolgo_polo_dev/20","https://t.me/dolgo_polo_dev/21","https://t.me/dolgo_polo_dev/22","https://t.me/dolgo_polo_dev/23","https://t.me/dolgo_polo_dev/24","https://t.me/dolgo_polo_dev/25","https://t.me/dolgo_polo_dev/26","https://t.me/dolgo_polo_dev/27","https://t.me/dolgo_polo_dev/29","https://t.me/dolgo_polo_dev/30","https://t.me/dolgo_polo_dev/31","https://t.me/dolgo_polo_dev/32","https://t.me/dolgo_polo_dev/33","https://t.me/dolgo_polo_dev/34","https://t.me/dolgo_polo_dev/35","https://t.me/dolgo_polo_dev/39","https://t.me/dolgo_polo_dev/42","https://t.me/dolgo_polo_dev/43","https://t.me/dolgo_polo_dev/45","https://t.me/dolgo_polo_dev/46","https://t.me/dolgo_polo_dev/47","https://t.me/dolgo_polo_dev/48","https://t.me/dolgo_polo_dev/49","https://t.me/dolgo_polo_dev/50","https://t.me/dolgo_polo_dev/51","https://t.me/dolgo_polo_dev/52"];
   document.getElementById("b_open_random_post").addEventListener("click", function(){
     var url = postUrls[Math.floor(Math.random()*postUrls.length)];
     window.open(url);
