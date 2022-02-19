@@ -879,6 +879,52 @@ sealed class или sealed interface:
         </a>
       </div>
 
+<div class="container_post">
+        <a href="https://t.me/dolgo_polo_dev/55">
+          <img class="post_img" src="imgs/55.jpg" onerror="this.src='imgs/not_found.png';">
+          <h4 class="post_title"><b>​​Kotlin Coroutine — корутины за 100 слов</b></h4>
+          <p class="post_desc">
+Основные принципы:
+
+• Приостанавливаемые — могут в определенных точках запомнить свое состояние, замереть, дать потоку выполнить часть другой функции, а после продолжить выполнение с той же точки
+
+• Асинхронные — за счет приостанавливаемости функции разбиваются на блоки. Поток может выполнять блоки от разных функций вперемешку
+
+• Прекращаемые — можем прекратить выполнение функции с помощью job.cancel()
+
+Функция замечает, что ее отменили, когда проверяет флаг Job.isActive
+
+
+Основные понятия:
+
+• CoroutineScope — контейнер для корутин
+
+дает возможность сгруппировать корутины, задать параметры CoroutineContext и отменить сразу все дочерние корутины
+
+корутины могут быть запущены только внутри CoroutineScope
+
+• CoroutineContext — характеристики для CoroutineScope
+
+Например, Dispatcher.Main - это наследник CoroutineContext - задает пул потоков, в котором будут выполняться функции
+
+• suspend — указывает, что функция может содержать асинхронный код
+
+• Job — объект, описывающий состояние корутины
+Напримери, содержит флаг isActive
+
+• Deffered<T> — расширяет Job. Позволяет вернуть значение из корутины
+
+
+Основные билдеры — функции, создающие и сразу запускающие корутину:
+
+• launch — возвращает Job
+
+• async — возвращает Deffered<T>
+
+• suspendCoroutine(cont: Continuation<T>) — возвращает T, который нужно вернуть через колбек cont.resume(obj: T)</p>
+        </a>
+      </div>
+
         </div>
 
         <div id="footer"></div>
@@ -900,7 +946,7 @@ sealed class или sealed interface:
 });
 
   var postUrls =
-["https://t.me/dolgo_polo_dev/14","https://t.me/dolgo_polo_dev/15","https://t.me/dolgo_polo_dev/18","https://t.me/dolgo_polo_dev/19","https://t.me/dolgo_polo_dev/20","https://t.me/dolgo_polo_dev/21","https://t.me/dolgo_polo_dev/22","https://t.me/dolgo_polo_dev/23","https://t.me/dolgo_polo_dev/24","https://t.me/dolgo_polo_dev/25","https://t.me/dolgo_polo_dev/26","https://t.me/dolgo_polo_dev/27","https://t.me/dolgo_polo_dev/29","https://t.me/dolgo_polo_dev/30","https://t.me/dolgo_polo_dev/31","https://t.me/dolgo_polo_dev/32","https://t.me/dolgo_polo_dev/33","https://t.me/dolgo_polo_dev/34","https://t.me/dolgo_polo_dev/35","https://t.me/dolgo_polo_dev/39","https://t.me/dolgo_polo_dev/42","https://t.me/dolgo_polo_dev/43","https://t.me/dolgo_polo_dev/45","https://t.me/dolgo_polo_dev/46","https://t.me/dolgo_polo_dev/47","https://t.me/dolgo_polo_dev/48","https://t.me/dolgo_polo_dev/49","https://t.me/dolgo_polo_dev/50","https://t.me/dolgo_polo_dev/51","https://t.me/dolgo_polo_dev/52"];
+["https://t.me/dolgo_polo_dev/14","https://t.me/dolgo_polo_dev/15","https://t.me/dolgo_polo_dev/18","https://t.me/dolgo_polo_dev/19","https://t.me/dolgo_polo_dev/20","https://t.me/dolgo_polo_dev/21","https://t.me/dolgo_polo_dev/22","https://t.me/dolgo_polo_dev/23","https://t.me/dolgo_polo_dev/24","https://t.me/dolgo_polo_dev/25","https://t.me/dolgo_polo_dev/26","https://t.me/dolgo_polo_dev/27","https://t.me/dolgo_polo_dev/29","https://t.me/dolgo_polo_dev/30","https://t.me/dolgo_polo_dev/31","https://t.me/dolgo_polo_dev/32","https://t.me/dolgo_polo_dev/33","https://t.me/dolgo_polo_dev/34","https://t.me/dolgo_polo_dev/35","https://t.me/dolgo_polo_dev/39","https://t.me/dolgo_polo_dev/42","https://t.me/dolgo_polo_dev/43","https://t.me/dolgo_polo_dev/45","https://t.me/dolgo_polo_dev/46","https://t.me/dolgo_polo_dev/47","https://t.me/dolgo_polo_dev/48","https://t.me/dolgo_polo_dev/49","https://t.me/dolgo_polo_dev/50","https://t.me/dolgo_polo_dev/51","https://t.me/dolgo_polo_dev/52","https://t.me/dolgo_polo_dev/55"];
   document.getElementById("b_open_random_post").addEventListener("click", function(){
     var url = postUrls[Math.floor(Math.random()*postUrls.length)];
     window.open(url);
